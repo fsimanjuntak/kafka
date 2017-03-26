@@ -1,0 +1,20 @@
+Prerequisites:
+- The latest version of Spark (2.1.0 pre build for hadoop 2.7 and later ) which can be downloaded from http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
+- Scala 2.11
+
+Kafka Instalation
+- Download the kafka package from https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.2.0/kafka_2.11-0.10.2.0.tgz
+- Go to downloads folder and extract the package using command line
+  tar -xzf kafka_2.11-0.10.2.0.tgz
+- Locate the package under your common instalation path for instance: /usr/lib (you can place it anywhere as long as you remember)
+  mv -R kafka_2.11-0.10.2.0 /usr/lib/
+- Set the environment variable
+  sudo nano ~/.bashrc
+- Add the kafka variable in the last line and save
+  EXPORT KAFKA_HOME =/usr/lib/kafka_2.11-0.10.2.0
+- Apply the changes
+  sudo source ~/.bashrc
+
+Starting Kafka and Zookeper Server
+- First, run zookeper
+  

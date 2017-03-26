@@ -1,0 +1,122 @@
+rabbitmqctl stop_app
+rabbitmqctl reset
+rabbitmqctl start_app
+
+
+sudo service cassandra start
+sudo service cassandra stop
+sudo service cassandra status
+sudo nodetool status
+
+sudo apt install python-pip
+pip install cassandra-driver
+export CQLSH_NO_BUNDLED=true
+
+cqlsh
+
+- If error happens Connection error: ('Unable to connect to any servers', {'127.0.0.1': TypeError('ref() does not take keyword arguments',)})
+
+type the following syntax on terminal 
+export CQLSH_NO_BUNDLED=TRUE
+
+#docker
+docker run -d -p 5672:5672 -p 15672:15672  --name rabbitmq 10.2.4.201/rabbitmq
+
+docker stop [containerID]
+
+docker rm [containerID]
+
+sudo -i => change to root
+
+
+/usr/lib/spark/bin$ pyspark
+
+
+pyspark
+
+
+#Scala
+bin/spark-submit --class com.sc.test.Wordcount --master local ../sparkJob.jar ../wc-data output
+bin/spark-submit --class com.sc.test.WordCounting --master local /home/frans/Desktop/TutorialSpark/TestScala/wordcounting/WordCounting.jar /home/frans/Desktop/TutorialSpark/input.txt /home/frans/Desktop/TutorialSpark/output
+
+$SPARK_HOME/bin/spark-submit --driver-class-path $PYSPARK_JAR src/main/python/pyspark_cassandra_example.py run demo totalcount
+
+$SPARK_HOME/bin/pyspark --jars $SPARK_CONNECTOR_JAR --driver-class-path $SPARK_CONNECTOR_JAR --conf spark.cassandra.connection.host=127.0.0.1 --master spark://127.0.0.1:7077
+
+$SPARK_HOME/bin/spark-submit --driver-class-path $SPARK_CONNECTOR_JAR TestSQL.py
+
+
+http://rustyrazorblade.com/2015/07/cassandra-pyspark-dataframes-revisted/
+
+https://medium.com/@amirziai/running-pyspark-with-cassandra-in-jupyter-2bf5e95c319#.stf2dfprq
+
+
+
+$SPARK_HOME/bin/pyspark --jars $SPARK_CONNECTOR_JAR TestSQL.py
+
+$SPARK_HOME/bin/spark-submit --packages datastax:spark-cassandra-connector:1.6.3-s_2.11 TestSQL.py
+
+
+$SPARK_HOME/bin/spark-submit --driver-class-path $PYSPARK_JAR src/main/python/pyspark_cassandra_example.py run demo totalcount
+result => TypeError: 'JavaPackage' object is not callable
+
+
+
+==========================================HADOOP 2.7.3=============================================================
+start hadoop => $ sbin/start-dfs.sh
+stop hadoop => sbin/stop-dfs.sh
+
+http://localhost:50070/explorer.html#/user/batch
+
+create directory => bin/hdfs dfs -mkdir /user or bin/hdfs dfs -mkdir /user/<username>
+remove file => hadoop fs -rmr /user/batch/*
+link: https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/SingleCluster.html
+
+connect to host localhost port 22: Connection refused:
+- Remove SSH => sudo apt-get remove openssh-client openssh-server
+- Add SSH again => sudo apt-get install openssh-client openssh-server
+
+Format name node:
+bin/hadoop namenode -format
+
+upload file to hdfs:
+hadoop fs -put /home/frans/Downloads/dummy01.csv /user/twitterdummy
+
+================Flume====================
+bin/flume-ng agent --conf ./conf/ -f conf/twitter.conf Dflume.root.logger=DEBUG,console -n TwitterAgent
+https://www.eduonix.com/blog/bigdata-and-hadoop/flume-installation-and-streaming-twitter-data-using-flume/
+https://www.tutorialspoint.com/apache_flume/fetching_twitter_data.htm
+
+==========================================
+$SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-streaming-kafka_2.10:1.5.0 streamingKafka.py
+$SPARK_HOME/bin/spark-submit --jars /home/frans/Downloads/spark-streaming-kafka-0-8_2.11-2.0.2.jar --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.2 streamingKafka.py
+
+$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
+$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
+$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+$KAFKA_HOME/bin/kafka-topics.sh --list --zookeeper localhost:2181
+$KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+
+
+
+
+$SPARK_HOME/bin/spark-submit --jars /home/frans/Downloads/spark-streaming-kafka-0-8_2.11-2.0.2.jar --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.2,com.datastax.spark:spark-cassandra-connector_2.10:1.6.5 --conf spark.cassandra.connection.host="127.0.0.1" streamingKafka.py
+
+
+$SPARK_HOME/bin/spark-submit --jars /home/frans/Downloads/spark-streaming-kafka-0-8_2.11-2.0.2.jar --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.2,com.datastax.spark:spark-cassandra-connector_2.11:2.0.0 --conf spark.cassandra.connection.host="127.0.0.1" streamingKafka.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
