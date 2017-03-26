@@ -1,0 +1,6 @@
+CREATE TABLE realtimedata (
+  sentiment text,
+  total double,
+  ts text,
+  PRIMARY KEY (ts)
+);
